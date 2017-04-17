@@ -10,8 +10,12 @@ func main() {
 	c := app.AppConfig{
 		IsDev: true,
 		Port:  os.Getenv("PORT"),
+		DbURI: os.Getenv("DbURI"),
 	}
 
-	app := app.New(c)
+	app, err := app.New(c)
+	if err != nil {
+		panic(err)
+	}
 	app.Run()
 }

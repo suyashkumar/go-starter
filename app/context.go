@@ -1,5 +1,7 @@
 package app
 
+import "github.com/jinzhu/gorm"
+
 type Context struct {
-	Port string
+	DB *gorm.DB
 }

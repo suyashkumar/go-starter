@@ -1,0 +1,19 @@
+hash: e3a26f6d50fd5f9cfa75a818f448be19f64c9a5e0ec2e647a58cef707b2916cd
+updated: 2017-04-16T23:53:30.933725945-07:00
+imports:
+- name: github.com/go-sql-driver/mysql
+  version: 9dee4ca50b83acdf57a35fb9e6fb4be640afa2f3
+- name: github.com/jinzhu/gorm
+  version: 5174cc5c242a728b435ea2be8a2f7f998e15429b
+  subpackages:
+  - dialects/mysql
+- name: github.com/jinzhu/inflection
+  version: 1c35d901db3da928c72a72d8458480cc9ade058f
+- name: github.com/julienschmidt/httprouter
+  version: 8c199fb6259ffc1af525cc3ad52ee60ba8359669
+- name: github.com/suyashkumar/go-starter.git
+  version: acd8d7c491bca1bdeedcfda87568bd4b6f193331
+  subpackages:
+  - app
+  - handlers
+testImports: []
