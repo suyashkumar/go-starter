@@ -6,3 +6,4 @@ This repository is a barebones golang web service scaffold that sets up routes, 
 1. `git clone https://github.com/suyashkumar/go-starter <name-of-your-project>`
 2. `cd <name-of-your-project>`
 3. `./install <go-import-path-of-your-project>` You must supply the go import path for your project. The current path is simply "github.com/suyashkumar/go-starter" but yours might be "github.com/bob/hello-world". 
+4. `glide install` to install dependencies.
