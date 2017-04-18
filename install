@@ -1,0 +1,13 @@
+#!/usr/bin/env python
+import os, fnmatch, sys
+
+if __name__ == '__main__':
+	for path, dirs, files in os.walk(os.getcwd()):
+		for filename in fnmatch.filter(files, "*.go"):
+			filepath = os.path.join(path, filename)
+			with open(filepath) as f:
+				s = f.read()
+			s = s.replace("github.com/suyashkumar/go-starter", sys.argv[1])
+			with open(filepath, "w") as f:
+				f.write(s)
+        os.remove(sys.argv[0]) # Delete install.py at the end of installation
