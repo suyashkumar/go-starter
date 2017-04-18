@@ -1,4 +1,12 @@
 #!/usr/bin/env python
+"""
+install recursively inspects every *.go file in the current
+working directory and replaces "github.com/suyashkumar/go-starter"
+with whatever is supplied as the first command line argument.
+
+This is used to update the import path for subpackages in this starter
+repo to a new path.
+"""
 import os, fnmatch, sys
 
 if __name__ == '__main__':
