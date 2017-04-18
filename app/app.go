@@ -48,7 +48,7 @@ func New(c AppConfig) (App, error) {
 
 func (a *app) Run() {
 	if a.config.IsDev {
-		fmt.Printf("Listening on port :%s", a.config.Port)
+		fmt.Printf("Listening on port :%s\n", a.config.Port)
 		err := http.ListenAndServe(":"+a.config.Port, a.router)
 		panic(err)
 	} else {

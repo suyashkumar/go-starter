@@ -14,5 +14,8 @@ func injectContext(h handlers.Handler, ctx *handlers.Context) httprouter.Handle 
 }
 
 func attachRoutes(r *httprouter.Router, ctx *handlers.Context) {
+	r.GET("/", injectContext(handlers.Index, ctx))
 	r.GET("/hello", injectContext(handlers.Hello, ctx))
+
+	r.ServeFiles("/static/*filepath", http.Dir("public/static"))
 }
