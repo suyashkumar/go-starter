@@ -52,6 +52,8 @@ func (a *app) Run() {
 		err := http.ListenAndServe(":"+a.config.Port, a.router)
 		panic(err)
 	} else {
-		go http.ListenAndServeTLS(":443", a.config.CertKey, a.config.PrivKey, a.router)
+		err := http.ListenAndServeTLS(":443", a.config.CertKey, a.config.PrivKey, a.router)
+		panic(err)
+		//TODO(suyash): Add redirect to https
 	}
 }
