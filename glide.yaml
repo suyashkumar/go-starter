@@ -10,3 +10,7 @@ import:
   subpackages:
   - app
   - handlers
+- package: github.com/sirupsen/logrus
+  version: ^1.0.4
+- package: github.com/rifflock/lfshook
+  version: ^2.1.0
