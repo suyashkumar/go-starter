@@ -1,19 +1,13 @@
 package main
 
 import (
-	"os"
-
 	"github.com/suyashkumar/go-starter/app"
+	"github.com/suyashkumar/go-starter/log"
 )
 
 func main() {
-	c := app.AppConfig{
-		IsDev: true,
-		Port:  os.Getenv("PORT"),
-		DbURI: os.Getenv("DbURI"),
-	}
-
-	app, err := app.New(c)
+	log.Configure()
+	app, err := app.New()
 	if err != nil {
 		panic(err)
 	}

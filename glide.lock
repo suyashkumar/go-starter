@@ -1,5 +1,5 @@
-hash: e3a26f6d50fd5f9cfa75a818f448be19f64c9a5e0ec2e647a58cef707b2916cd
-updated: 2017-04-16T23:53:30.933725945-07:00
+hash: 6b70d0ae57325ecfbe8b9dc1b013794259e3132bc533b44cdfcb604e5e1be667
+updated: 2017-12-15T01:39:48.740333-05:00
 imports:
 - name: github.com/go-sql-driver/mysql
   version: 9dee4ca50b83acdf57a35fb9e6fb4be640afa2f3
@@ -11,9 +11,22 @@ imports:
   version: 1c35d901db3da928c72a72d8458480cc9ade058f
 - name: github.com/julienschmidt/httprouter
   version: 8c199fb6259ffc1af525cc3ad52ee60ba8359669
+- name: github.com/rifflock/lfshook
+  version: 1e6869029fcba52a12e98696e95dc1f0fb33702f
+- name: github.com/sirupsen/logrus
+  version: d682213848ed68c0a260ca37d6dd5ace8423f5ba
 - name: github.com/suyashkumar/go-starter.git
   version: acd8d7c491bca1bdeedcfda87568bd4b6f193331
   subpackages:
   - app
   - handlers
+- name: golang.org/x/crypto
+  version: 541b9d50ad47e36efd8fb423e938e59ff1691f68
+  subpackages:
+  - ssh/terminal
+- name: golang.org/x/sys
+  version: 8dbc5d05d6edcc104950cc299a1ce6641235bc86
+  subpackages:
+  - unix
+  - windows
 testImports: []
