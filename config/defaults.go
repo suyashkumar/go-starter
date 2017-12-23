@@ -9,7 +9,7 @@ const PrivKey = "PrivKey"
 
 var defaults = map[string]string{
 	LogFile:      "logs.txt",
-	IsDev:        "",
+	IsDev:        "true",
 	DBConnString: "",
 	Port:         "8000",
 }

@@ -3,8 +3,7 @@ package config
 import "os"
 
 func Get(key string) string {
-	value, ok := os.LookupEnv(key)
-	if ok {
+	if value, ok := os.LookupEnv(key); ok {
 		return value
 	}
 
@@ -15,3 +14,4 @@ func Get(key string) string {
 
 	return defValue
 }
+

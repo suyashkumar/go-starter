@@ -4,6 +4,7 @@ import (
 	"github.com/jinzhu/gorm"
 	"github.com/suyashkumar/go-starter/config"
 	"github.com/sirupsen/logrus"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
 
 const DefaultMaxIdleConns = 5

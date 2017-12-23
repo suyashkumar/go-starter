@@ -1,15 +1,38 @@
 package main
 
 import (
-	"github.com/suyashkumar/go-starter/app"
+	"fmt"
+	"net/http"
+
+	"github.com/sirupsen/logrus"
+	"github.com/suyashkumar/go-starter/config"
 	"github.com/suyashkumar/go-starter/log"
+	"github.com/suyashkumar/go-starter/routes"
 )
 
 func main() {
 	log.Configure()
-	app, err := app.New()
-	if err != nil {
-		panic(err)
+
+	r := routes.Build()
+
+	isDev := config.Get(config.IsDev) != ""
+	p := fmt.Sprintf(":%s", config.Get(config.Port))
+
+	if isDev {
+		// Serve without SSL
+		logrus.WithField("port", p).Info("Serving without SSL")
+		err := http.ListenAndServe(p, r)
+		logrus.Fatal(err)
+	} else {
+		// Serve with SSL
+		logrus.Info("Serving with SSL")
+		err := http.ListenAndServeTLS(
+			p,
+			config.Get(config.CertKey),
+			config.Get(config.PrivKey),
+			r,
+		)
+		logrus.Fatal(err)
 	}
-	app.Run()
+
 }
