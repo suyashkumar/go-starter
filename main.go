@@ -15,10 +15,10 @@ func main() {
 
 	r := routes.Build()
 
-	isDev := config.Get(config.IsDev) != ""
 	p := fmt.Sprintf(":%s", config.Get(config.Port))
 
-	if isDev {
+	// TODO: clean up config bool checks
+	if config.Get(config.IsDev) == "true" {
 		// Serve without SSL
 		logrus.WithField("port", p).Info("Serving without SSL")
 		err := http.ListenAndServe(p, r)
@@ -32,6 +32,7 @@ func main() {
 			config.Get(config.PrivKey),
 			r,
 		)
+		// TODO: reroute http requests to https
 		logrus.Fatal(err)
 	}
 
