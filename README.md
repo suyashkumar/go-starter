@@ -7,7 +7,7 @@ Since Golang uses the directory structure of your project for import/build paths
 1. `git clone https://github.com/suyashkumar/go-starter <path-of-your-project>`
 2. `cd <path-of-your-project>`
 3. `./install <go-import-path-of-your-project>` You must supply the go import path for your project. The current path is simply "github.com/suyashkumar/go-starter" but yours might be "github.com/bob/hello-world" if your project lives in `$GOPATH/src/github.com/bob/hello-world`. 
-4. `glide install` to install dependencies.
+4. `dep ensure` to install dependencies (or just run `make` to build).
 5. (Optional) you may want to `rm -rf .git` and `git init` your new git repo from scratch. 
 
 ## General Usage
