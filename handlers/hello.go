@@ -8,5 +8,5 @@ import (
 )
 
 func Hello(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
-	fmt.Fprintf(w, "Hello, world")
+	fmt.Fprint(w, "Hello, world")
 }
