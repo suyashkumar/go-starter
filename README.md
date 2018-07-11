@@ -1,6 +1,6 @@
 # go-starter
 
-This repository is a barebones golang web service scaffold that sets up routes, SSL, static file serving, and a global pooled mysql database connection. [Glide](https://github.com/Masterminds/glide) is used for dependency management. This is still in progress!
+This repository is a barebones golang web service scaffold that sets up routes, SSL, static file serving, and a global pooled mysql database connection. This is still in progress!
 
 ## Initial Installation
 Since Golang uses the directory structure of your project for import/build paths, to use this code all import instances with "github.com/suyashkumar/go-starter" will have to be replaced with your import path. A script is provided to automatically do this for you. 
