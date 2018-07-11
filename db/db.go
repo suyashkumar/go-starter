@@ -1,32 +1,57 @@
 package db
 
 import (
+	"errors"
+
 	"github.com/jinzhu/gorm"
-	"github.com/suyashkumar/go-starter/config"
-	"github.com/sirupsen/logrus"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
 
 const DefaultMaxIdleConns = 5
 
-var db *gorm.DB
+var ErrorNoConnectionString = errors.New("A connection string must be specified on the first call to Get")
 
-func Get() (*gorm.DB, error) {
-	if db != nil {
-		return db, nil
+// Handler abstracts away common DB operations needed for this project.
+// Functions to fetch / insert db entities relevant to this project should
+// be added to this interface (e.g. GetUser, InsertUser, etc)
+type Handler interface {
+	// GetDB returns the Handler's underlying *gorm.DB
+	GetDB() *gorm.DB
+}
+
+type handler struct {
+	db *gorm.DB
+}
+
+// NewHandler initializes and returns a new Handler
+func NewHandler(dbConnection string) (Handler, error) {
+	db, err := getDB(dbConnection)
+	if err != nil {
+		return nil, err
+	}
+	// AutoMigrate relevant schemas
+	// db.AutoMigrate(&entities.User{})
+	return &handler{
+		db: db,
+	}, nil
+}
+
+func (d *handler) GetDB() *gorm.DB {
+	return d.db
+}
+
+func getDB(dbConnection string) (*gorm.DB, error) {
+	if dbConnection == "" {
+		return nil, ErrorNoConnectionString
 	}
 
-	c := config.Get(config.DBConnString)
-	d, err := gorm.Open("postgres", c)
-
+	d, err := gorm.Open("postgres", dbConnection)
 	if err != nil {
-		logrus.WithField("DBConnString", c).Error("Unable to connect to database")
+		return nil, err
 	}
 
 	d.DB().SetMaxIdleConns(DefaultMaxIdleConns)
 
-	db = d
-
-	return db, nil
+	return d, nil
 
 }
